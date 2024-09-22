@@ -1,9 +1,9 @@
 ---
 inject: true
 to: src/<%= h.inflection.transform(name, ['pluralize', 'underscore', 'dasherize']) %>/dto/create-<%= h.inflection.transform(name, ['underscore', 'dasherize']) %>.dto.ts
-before: "} from 'class-validator'"
-skip_if: \IsString,
+before: "} from '@nestjs/swagger'"
+skip_if: \ApiProperty,
 ---
-<% if (isAddToDto && type === 'string') { -%>
-IsString,
+<% if (isAddToDto) { -%>
+  ApiProperty,
 <% } -%>

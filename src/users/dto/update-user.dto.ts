@@ -20,6 +20,8 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   @MinLength(6)
   password?: string;
 
+  previousPassword?: string;
+
   provider?: string;
 
   socialId?: string | null;
@@ -45,6 +47,4 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   @IsOptional()
   @Type(() => StatusDto)
   status?: StatusDto;
-
-  hash?: string | null;
 }
